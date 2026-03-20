@@ -1,3 +1,4 @@
+import { InfoflowConfig } from "../../extensions/infoflow/src/types.ts";
 import type { GroupPolicy } from "./types.base.js";
 import type { DiscordConfig } from "./types.discord.js";
 import type { GoogleChatConfig } from "./types.googlechat.js";
@@ -65,6 +66,7 @@ export type ChannelsConfig = {
   signal?: SignalConfig;
   imessage?: IMessageConfig;
   msteams?: MSTeamsConfig;
+  infoflow?: InfoflowConfig;
   // Extension channels use dynamic keys - use ExtensionChannelConfig in extensions
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;

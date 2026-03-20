@@ -1,0 +1,195 @@
+{
+  "id": "infoflow",
+  "channels": ["infoflow"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "apiHost": {
+        "type": "string"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "name": {
+        "type": "string"
+      },
+      "token": {
+        "type": "string"
+      },
+      "encodingAESKey": {
+        "type": "string"
+      },
+      "appKey": {
+        "type": "string"
+      },
+      "appSecret": {
+        "type": "string"
+      },
+      "appAgentId": {
+        "type": "number"
+      },
+      "defaultTo": {
+        "type": ["string", "number"]
+      },
+      "dmPolicy": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "policy": {
+            "type": "string",
+            "enum": ["open", "pairing", "allowlist"]
+          },
+          "allowFrom": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "groupPolicy": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "policy": {
+            "type": "string",
+            "enum": ["open", "allowlist", "disabled"]
+          },
+          "allowFrom": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "contextPolicy": {
+        "type": "object",
+        "properties": {
+          "maxRound": {
+            "type": "number"
+          },
+          "messageStructure": {
+            "type": "string",
+            "enum": ["tree", "list"]
+          },
+          "enableContextCompression": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "messageType": {
+        "type": "string",
+        "enum": ["markdown", "card"]
+      },
+      "accounts": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "apiHost": {
+              "type": "string"
+            },
+            "token": {
+              "type": "string"
+            },
+            "encodingAESKey": {
+              "type": "string"
+            },
+            "appKey": {
+              "type": "string"
+            },
+            "appSecret": {
+              "type": "string"
+            },
+            "appAgentId": {
+              "type": "number"
+            },
+            "defaultAccount": {
+              "type": "string"
+            },
+            "defaultTo": {
+              "type": ["string", "number"]
+            },
+            "dmPolicy": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "policy": {
+                  "type": "string",
+                  "enum": ["open", "pairing", "allowlist"]
+                },
+                "allowFrom": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            "groupPolicy": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "policy": {
+                  "type": "string",
+                  "enum": ["open", "allowlist", "disabled"]
+                },
+                "allowFrom": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            "contextPolicy": {
+              "type": "object",
+              "properties": {
+                "maxRound": {
+                  "type": "number"
+                },
+                "messageStructure": {
+                  "type": "string",
+                  "enum": ["tree", "list"]
+                },
+                "enableContextCompression": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "messageType": {
+              "type": "string",
+              "enum": ["markdown", "card"]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "defaultAccount": {
+        "type": "string"
+      }
+    }
+  }
+}
