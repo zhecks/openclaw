@@ -1,0 +1,26 @@
+{
+  "name": "@openclaw/my-channel",
+  "version": "2026.1.1",
+  "description": "OpenClaw My Channel plugin",
+  "type": "module",
+  "dependencies": {},
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "setupEntry": "./setup-entry.ts",
+    "channel": {
+      "id": "my-channel",
+      "label": "My Channel",
+      "selectionLabel": "My Channel (plugin)",
+      "docsPath": "/channels/my-channel",
+      "docsLabel": "my-channel",
+      "blurb": "Short description of the channel.",
+      "order": 80
+    },
+    "install": {
+      "npmSpec": "@openclaw/my-channel",
+      "localPath": "extensions/my-channel"
+    }
+  }
+}
