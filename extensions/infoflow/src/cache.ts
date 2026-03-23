@@ -1,3 +1,5 @@
+import { createDedupeCache } from "openclaw/plugin-sdk/feishu";
+
 export const tokenCacheMap = new Map<
   string,
   {
@@ -5,3 +7,8 @@ export const tokenCacheMap = new Map<
     expiresAt: number;
   }
 >();
+
+export const messageCacheMap = createDedupeCache({
+  ttlMs: 5 * 60 * 1000,
+  maxSize: 1000,
+});

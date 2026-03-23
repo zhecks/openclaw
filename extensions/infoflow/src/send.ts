@@ -1,20 +1,19 @@
 import { createHash } from "node:crypto";
 import { resolveInfoflowAccount } from "./accounts.js";
-import { tokenCacheMap } from "./cache.js";
+import { tokenCacheMap } from "./cache.ts";
 import {
   DEFAULT_TIMEOUT_MS,
   INFOFLOW_GET_ACCESS_TOKEN_PATH,
   INFOFLOW_SEND_PRIVATE_MSG_PATH,
-} from "./consts.js";
-import { looksLikeInfoflowGroupId, normalizeInfoflowTarget } from "./target.js";
+} from "./consts.ts";
+import { looksLikeInfoflowGroupId, normalizeInfoflowTarget } from "./target.ts";
 import {
   GetAppAccessTokenParams,
-  SendInfoflowMessageResult,
-  SendInfoflowMessageParams,
   GetAppAccessTokenResult,
-  MetionTarget,
   MarkdownMessage,
-} from "./types.js";
+  SendInfoflowMessageParams,
+  SendInfoflowMessageResult,
+} from "./types.ts";
 
 function ensureHttps(apiHost: string): string {
   if (apiHost.startsWith("http://")) {

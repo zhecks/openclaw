@@ -1,8 +1,8 @@
 import { createAccountListHelpers } from "openclaw/plugin-sdk/account-helpers";
 import { normalizeAccountId } from "openclaw/plugin-sdk/account-id";
+import { OpenClawConfig } from "openclaw/plugin-sdk/config-runtime";
 import { resolveAccountEntry } from "openclaw/plugin-sdk/routing";
-import { OpenClawConfig } from "../runtime-api.js";
-import { InfoflowAccountConfig, ResolvedInfoflowAccount } from "./types.js";
+import { InfoflowAccountConfig, ResolvedInfoflowAccount } from "./types.ts";
 
 const { listAccountIds, resolveDefaultAccountId } = createAccountListHelpers("infoflow");
 export const listInfoflowAccountIds = listAccountIds;
@@ -60,4 +60,10 @@ export function resolveInfoflowAccount(params: {
     configured: configured,
     config: merged,
   };
+}
+
+export function listEnabledInfoflowAccounts(cfg: OpenClawConfig): ResolvedInfoflowAccount[] {
+  return listAccountIds(cfg)
+    .map((accountId) => resolveInfoflowAccount({ cfg, accountId }))
+    .filter((account) => account.enabled && account.configured);
 }
